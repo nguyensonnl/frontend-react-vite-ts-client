@@ -1,10 +1,14 @@
-import * as React from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 const UseRef = () => {
-  const inputRef = React.useRef<HTMLInputElement>(null);
-  const [input, setInput] = React.useState<string>("");
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [input, setInput] = useState<string>("");
 
   console.log(">>>pre-render");
+  //console.log(input);
+  useEffect(() => {
+    console.log(inputRef.current?.value);
+  }, []);
 
   return (
     <>
